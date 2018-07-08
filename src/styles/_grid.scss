@@ -1,0 +1,25 @@
+// BREAKPOINTS
+$laptop-bp: 	1366px;
+
+// MEDIA QUERIES
+$handheld-landscape: 	"only screen and (max-width: #{$laptop-bp - 1}) and (orientation: landscape)";
+$laptop:	        "only screen and (min-width: #{$laptop-bp})";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.container {
+    @include clearfix;
+    
+	display: block;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+	@media #{$laptop} {
+        margin-left: auto;
+        margin-right: auto;
+		width: 1200px;
+    }
+}
