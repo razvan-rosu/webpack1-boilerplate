@@ -1,0 +1,27 @@
+{
+  "name": "webpack1-boilerplate",
+  "version": "0.0.1",
+  "description": "a webpack version 1.* boilerplate for web projects",
+  "scripts": {
+    "test": "-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razvan-rosu/webpack1-boilerplate.git"
+  },
+  "keywords": [
+    "webpack 1.*",
+    "boilerplate",
+    "es6",
+    "es5 transpile",
+    "bundles",
+    "scss",
+    "css autoprefixer"
+  ],
+  "author": "Răzvan Roșu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/razvan-rosu/webpack1-boilerplate/issues"
+  },
+  "homepage": "https://github.com/razvan-rosu/webpack1-boilerplate#readme"
+}
