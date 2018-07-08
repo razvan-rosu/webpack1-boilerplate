@@ -1,0 +1,1 @@
+alert('Hello page1.js');
