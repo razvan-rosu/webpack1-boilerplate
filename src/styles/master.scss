@@ -1,0 +1,9 @@
+@import "../../node_modules/node-normalize-scss/_normalize.scss";
+
+@import '_mixins.scss';
+@import '_grid.scss';
+@import '_colors.scss';
+@import '_typography.scss';
+
+@import 'page1.scss';
+@import 'page2.scss';
