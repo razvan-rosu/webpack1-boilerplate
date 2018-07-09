@@ -1,65 +1,145 @@
-.Index {
+.Page-index {
     min-height: 100vh;
     background-color: $white-80;
-    background-image: url('../images/pattern.png');
+    background-image: url('../images/pattern.png'), url('../images/pattern.png');
     background-repeat: repeat-x;
-    background-position: left bottom;
+    background-position: left bottom, left top;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-
-.Index-quote {
-
-}
-
-.Index-section {
-    margin-top: 100px;
-}
-
-.Index-listLogos {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 160px 110px auto 60px 1fr 160px;
+    grid-template-areas: "header" "logos" "features" "navigation" "gridFill" "footer";
+    align-content: stretch;
+    justify-content: flex-start;
     
-    list-style-type: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    border-top: 5px solid $black-40;
-    border-bottom: 5px solid $black-40;
-}
+    .Header {
+        grid-area: header;
 
-.Index-listLogos > li {
-    display: flex;
-    flex-basis: 100px;
-    width: 100px;
-    height: 100px;
-}
+        height: 160px;
+        text-align: center;
 
-.Index-logo {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    align-self: center;
-}
+        &-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    
+    .Logos {
+        grid-area: logos;
+        
+        &-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            
+            list-style-type: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            border-top: 5px solid $black-40;
+            border-bottom: 5px solid $black-40;
+            
+            & > li {
+                display: flex;
+                flex-basis: 100px;
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        &-item {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            align-self: center;
+        }
+    }
+    
+    .Features {
+        grid-area: features;
+        
+        &-list {
+            list-style-type: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 40px;
 
-.Index-footer {
-    height: 160px;
-    text-align: center;
-}
+            columns: auto 2;
 
-.Index-footer p {
-    margin-top: 0;
-    margin-bottom: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
+            & > li::before {
+                content: '';
+                display: inline-block;
+                margin-right: 4px;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background-color: $black-80;
+                vertical-align: middle;
+            }
+        }
+    }
 
-.Index-footer strong {
-    color: $red-80;
+    .Navigation {
+        grid-area: navigation;
+
+        &-list {
+            list-style-type: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+
+            & > li {
+                flex-basis: 50%;
+            }
+        }
+
+        &-button {
+            display: block;
+            padding: 10px 20px;
+            background-color: $black-40;
+            text-align: center;
+            line-height: 20px; 
+            text-decoration: none;
+            color: $white-80;
+
+            strong, span {
+                display: block;
+            }
+
+            &:hover {
+                background-color: $black-80;
+            }
+        }
+    }
+    
+    .GridFill {
+        grid-area: gridFill;
+    }
+
+    .Footer {
+        grid-area: footer;
+        
+        height: 160px;
+        text-align: center;
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        strong {
+            color: $red-80;
+        }
+    }
 }
