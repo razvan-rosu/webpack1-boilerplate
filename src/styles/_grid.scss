@@ -14,8 +14,6 @@ $laptop:	        "only screen and (min-width: #{$laptop-bp})";
     
 	display: block;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
 
 	@media #{$laptop} {
         margin-left: auto;
