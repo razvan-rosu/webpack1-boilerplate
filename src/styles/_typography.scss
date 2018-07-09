@@ -1,11 +1,25 @@
+$font-main: 'Space Mono', monospace;
+$font-emphasys: 'Nunito', sans-serif;
+
 body {
     -moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+    background-color: $white-40;
+    font-style: normal;
+	font-weight: 400;
+    font-family: $font-main;
+    font-size: 16px;
     color: $black-80;
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-style: italic;
+	font-weight: 700;
+    font-family: $font-emphasys;
     color: $red-80;
 }
 
+h1 {
+    font-size: 3rem;
+}
