@@ -38,16 +38,16 @@ module.exports = {
                 test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
                 use: {
                     loader: 'url-loader',
-                        options: {
+                    options: {
                         limit: 100000,
                         mimetype: 'application/font-woff',
                         name: "./src/fonts/[name].[ext]"
-                    },
+                    }
                 }
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css-loader?sourceMap!autoprefixer?browsers=last 2 versions!sass')
+                loader: ExtractTextPlugin.extract('style', 'css-loader?sourceMap!autoprefixer?browsers=last 2 versions!sass?sourceMap')
             }
         ]
     },
