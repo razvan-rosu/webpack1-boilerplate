@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "a webpack version 1.* boilerplate for web projects",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "clean-build": "npm run clean && npm run build",
-    "build": "webpack --watch",
+    "start": "webpack-dev-server",
+    "build:dev": "NODE_ENV=development webpack --watch",
+    "build:stage": "NODE_ENV=stage webpack",
+    "build:prod": "NODE_ENV=production webpack",
     "clean": "rm -rf build"
   },
   "repository": {
