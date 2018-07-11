@@ -68,7 +68,8 @@
             margin-bottom: 0;
             padding: 40px;
 
-            columns: auto 2;
+            column-width: auto;
+            column-count: 2;
 
             & > li::before {
                 content: '';
