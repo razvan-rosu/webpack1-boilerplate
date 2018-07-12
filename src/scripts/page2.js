@@ -11,6 +11,6 @@ const users = [
 const index = findIndex(users, { 'user': 'fred',   'age': 40 });
 const sortedArr = sortBy(users, ['user', 'age']);
 
-console.log('Hello page1.js');
+console.log('Hello page2.js');
 console.log('^^^', index);
 console.log('>>>', sortedArr);
