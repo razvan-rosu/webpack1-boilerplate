@@ -4,6 +4,7 @@
   "description": "a webpack version 1.* boilerplate for web projects",
   "scripts": {
     "start": "npm run clean && NODE_ENV=production webpack && webpack-dev-server",
+    "serve": "webpack-dev-server",
     "build:dev": "npm run clean && NODE_ENV=development webpack --watch",
     "build:prod": "npm run clean && NODE_ENV=production webpack",
     "clean": "rm -rf build"
