@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "a webpack version 1.* boilerplate for web projects",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build:dev": "NODE_ENV=development webpack --watch",
-    "build:stage": "NODE_ENV=stage webpack",
-    "build:prod": "NODE_ENV=production webpack",
+    "start": "npm run clean && NODE_ENV=production webpack && webpack-dev-server",
+    "serve": "webpack-dev-server",
+    "build:dev": "npm run clean && NODE_ENV=development webpack --watch",
+    "build:prod": "npm run clean && NODE_ENV=production webpack",
     "clean": "rm -rf build"
   },
   "repository": {
@@ -33,7 +33,6 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^1.1.11",

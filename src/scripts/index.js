@@ -1,5 +1,3 @@
-require('../styles/master.scss');
-
 import babelimg from '../images/babel.png';
 import sassimg from '../images/sass.png';
 import webpackimg from '../images/webpack.png';
