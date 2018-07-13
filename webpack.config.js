@@ -18,7 +18,10 @@ var isProd = env === 'production';
 
 module.exports = {
 	entry: {
-        index: './src/scripts/index.js',
+        app: [
+            './src/styles/master.scss',
+            './src/scripts/index.js'
+        ],
 	    page1: './src/scripts/page1.js',
         page2: './src/scripts/page2.js',
         vendor: ['mithril']
@@ -35,7 +38,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
+                test: /\.s[ac]ss$/,
                 loader: isProd ? ExtractTextPlugin.extract('style', 'css-loader!autoprefixer?browsers=last 2 versions!sass') : ExtractTextPlugin.extract('style', 'css-loader?sourceMap!autoprefixer?browsers=last 2 versions!sass?sourceMap')
             },
             {
@@ -64,7 +67,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.bundle.css'),
+        new ExtractTextPlugin('[name].min.css'),
         new webpack.optimize.CommonsChunkPlugin({ 
             name: 'vendor', 
             filename: 'vendor.bundle.js', 
