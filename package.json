@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "a webpack version 1.* boilerplate for web projects",
   "scripts": {
-    "start": "npm run clean && NODE_ENV=production webpack && webpack-dev-server",
+    "start": "npm run clean && NODE_ENV=production webpack-dev-server",
     "serve": "webpack-dev-server",
     "build:dev": "npm run clean && NODE_ENV=development webpack --watch",
     "build:prod": "npm run clean && NODE_ENV=production webpack",
@@ -36,6 +36,7 @@
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
