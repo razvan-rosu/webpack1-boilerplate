@@ -73,7 +73,7 @@ module.exports = {
         new ExtractTextPlugin('[name].min.[contenthash:4].css'),
         new webpack.optimize.CommonsChunkPlugin({ 
             name: 'vendor', 
-            filename: 'vendor.bundle.[hash:4].js', 
+            filename: 'vendor.bundle.js', 
             minChunks: Infinity 
         }),
         new webpack.optimize.UglifyJsPlugin({ 
