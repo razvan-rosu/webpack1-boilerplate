@@ -1,6 +1,9 @@
 # Build
 build
 
+# IDE
+.idea
+
 # Logs
 logs
 *.log
