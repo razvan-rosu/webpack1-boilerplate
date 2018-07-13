@@ -10,6 +10,9 @@ var CommonsChunkPlugin = require('./node_modules/webpack/lib/optimize/CommonsChu
 // minify bundles
 var UglifyJsPlugin = require('./node_modules/webpack/lib/optimize/UglifyJsPlugin');
 
+// dynamicly insert hashed bundles into page template
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 /** 
  * ENV variables 
 */
@@ -28,7 +31,7 @@ module.exports = {
     },
 	output: {
         path: path.join(__dirname, 'build'),
-		filename: '[name].bundle.js'
+		filename: '[name].bundle.[chunkhash:4].js'
     },
     devServer: {
 	    inline: true,
@@ -67,10 +70,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('[name].min.css'),
+        new ExtractTextPlugin('[name].min.[contenthash:4].css'),
         new webpack.optimize.CommonsChunkPlugin({ 
             name: 'vendor', 
-            filename: 'vendor.bundle.js', 
+            filename: 'vendor.bundle.[hash:4].js', 
             minChunks: Infinity 
         }),
         new webpack.optimize.UglifyJsPlugin({ 
@@ -78,6 +81,21 @@ module.exports = {
                 warnings: false, 
                 drop_console: false 
             } 
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'index.html'),
+            filename: 'index.html',
+            chunks: ['vendor', 'app']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'pages', 'page1.html'),
+            filename: 'src/pages/page1.html',
+            chunks: ['vendor', 'app', 'page1']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'pages', 'page2.html'),
+            filename: 'src/pages/page2.html',
+            chunks: ['vendor', 'app', 'page2']
         })
     ]
 };
