@@ -1,7 +1,4 @@
 {
-    "rules": {
-    },
-    "globals": {
-    }
+    "extends": "eslint:recommended"
 }
  
