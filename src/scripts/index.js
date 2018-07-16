@@ -18,3 +18,17 @@ const postcss = document.getElementById('postcss-img');
 if (postcss) postcss.src = postcssimg;
 
 // alert('Hello index.js');
+
+// Include mithril
+const m = require('mithril');
+
+// Pass mithril to the router.
+// Only required to overload once, subsequent overloads will
+// return the same instance
+require('mithril-router')(m);
+
+m.route(document.body, {
+    "/": { controller: home, namespace: "index", root: true },
+    "/login": { controller: login, namespace: "login" },
+    "/dashboard": { controller: dashboard, namespace: "dashboard" }
+});
