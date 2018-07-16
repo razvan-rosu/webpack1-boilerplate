@@ -27,7 +27,7 @@ module.exports = {
         ],
 	    page1: './src/scripts/page1.js',
         page2: './src/scripts/page2.js',
-        vendor: ['mithril']
+        vendor: ['mithril', 'mithril-router']
     },
 	output: {
         path: path.join(__dirname, 'build'),
