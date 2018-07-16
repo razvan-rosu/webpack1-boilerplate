@@ -8,7 +8,7 @@ import footer from './components/footer';
 
 const Page = {
     view: function() {
-        return m('div', [
+        return m('.Page1', [
             m(header),
             m(usersList),
             m('div.Flex-gap'),
