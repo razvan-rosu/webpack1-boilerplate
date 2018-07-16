@@ -36,7 +36,6 @@ const Header = {
     }
 };
 
-
 /*
  * modal
  */
@@ -70,31 +69,20 @@ const modal = {
         }
 
         return m(".modal-container", [
-            m(".modal-backdrop.fade.in"),
-            m(".modal.fade.in[style='display: block']", {onclick: this.hide.bind(this)},
-                m(".modal-dialog",
-                    m(".modal-content", {
-                        onclick: function(e){
-                            m.redraw.strategy("none");
-                            e.stopPropagation();
-                        }
-                    }, [
-                        m(".modal-header", [
-                            m("button[aria-hidden='true'][data-dismiss='modal'][class='close'][type='button']", {onclick: this.hide.bind(this)}, m("span[aria-hidden=true]", "×")),
-                            m("h4.modal-title", this._component.title ? this._component.title(this._attrs) : "")
-                        ]),
-                        m(".modal-body", m(this._component, this._attrs))
-                    ])
-                )
-            )
+            m(".modal", [
+                m(".modal-header", [
+                    m("button[type='button']", {onclick: this.hide.bind(this)}, "×"),
+                    m("h4.modal-title", this._component.title ? this._component.title(this._attrs) : "")
+                ]),
+                m(".modal-body", m(this._component, this._attrs))
+            ])
         ]);
     }
 };
 
-
 const message = {
     title: function(attrs) {
-        return "Sample";
+        return "Lorem ipsum";
     },
     view: function(ctrl, attrs) {
         return m("h2", "Dialog title");
