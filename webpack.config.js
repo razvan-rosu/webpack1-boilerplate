@@ -25,9 +25,9 @@ module.exports = {
             './src/styles/master.scss',
             './src/scripts/index.js'
         ],
-	    page1: './src/scripts/page1.js',
-        page2: './src/scripts/page2.js',
-        vendor: ['mithril', 'mithril-router', 'mithril-i18next']
+	    playground: './src/scripts/pages/playground.js',
+        spa: './src/scripts/pages/spa.js',
+        vendor: ['mithril', 'mithril-i18next']
     },
 	output: {
         path: path.join(__dirname, 'build'),
@@ -88,14 +88,14 @@ module.exports = {
             chunks: ['vendor', 'app']
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'pages', 'page1.html'),
-            filename: 'src/pages/page1.html',
-            chunks: ['vendor', 'app', 'page1']
+            template: path.join(__dirname, 'src', 'pages', 'playground.html'),
+            filename: 'src/pages/playground.html',
+            chunks: ['vendor', 'app', 'playground']
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'pages', 'page2.html'),
-            filename: 'src/pages/page2.html',
-            chunks: ['vendor', 'app', 'page2']
+            template: path.join(__dirname, 'src', 'pages', 'spa.html'),
+            filename: 'src/pages/spa.html',
+            chunks: ['vendor', 'app', 'spa']
         })
     ]
 };
