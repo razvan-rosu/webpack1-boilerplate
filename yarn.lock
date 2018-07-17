@@ -2387,10 +2387,6 @@ mithril-i18next@^0.4.1:
   dependencies:
     html-parse-stringify2 "^2.0.1"
 
-mithril-router@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/mithril-router/-/mithril-router-1.3.3.tgz#88ee38b733ab7b5417f725e70150e5790fe59fd8"
-
 mithril-tsx-component@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/mithril-tsx-component/-/mithril-tsx-component-3.0.0.tgz#ffbd1b095f9fb6b4653c7a5cc87253a5b677f523"
