@@ -17,7 +17,7 @@ const footer = {
             m("footer.Footer",
                 m("button[type='button'].Footer-button",
                     {onclick: modal.show.bind(modal, message)},
-                    "This will display a reusable component in a popup"
+                    "Open modal"
                 )
             ),
             m(modal)
