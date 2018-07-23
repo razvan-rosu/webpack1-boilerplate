@@ -45,8 +45,11 @@
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
+    "i18next": "^11.3.6",
     "lodash": "^4.17.10",
     "mithril": "^1.1.6",
+    "mithril-i18next": "^0.4.1",
+    "mithril-tsx-component": "^3.0.0",
     "moment": "^2.22.2",
     "node-normalize-scss": "^8.0.0"
   }

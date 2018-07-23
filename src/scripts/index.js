@@ -16,5 +16,3 @@ if (webpack) webpack.src = webpackimg;
 
 const postcss = document.getElementById('postcss-img');
 if (postcss) postcss.src = postcssimg;
-
-// alert('Hello index.js');

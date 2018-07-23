@@ -14,3 +14,10 @@ const sortedArr = sortBy(users, ['user', 'age']);
 console.log('Hello page2.js');
 console.log('^^^', index);
 console.log('>>>', sortedArr);
+
+
+import moment from 'moment';
+
+const today = moment().format();
+
+console.log(today);
