@@ -4,8 +4,7 @@
   "description": "a webpack version 1.* boilerplate for web projects",
   "scripts": {
     "start": "npm run clean && NODE_ENV=production webpack-dev-server",
-    "serve": "webpack-dev-server",
-    "build:dev": "npm run clean && NODE_ENV=development webpack --watch",
+    "build:dev": "npm run clean && NODE_ENV=development webpack-dev-server --watch",
     "build:prod": "npm run clean && NODE_ENV=production webpack",
     "clean": "rm -rf build"
   },
@@ -45,12 +44,10 @@
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
-    "i18next": "^11.3.6",
     "lodash": "^4.17.10",
     "mithril": "^1.1.6",
-    "mithril-i18next": "^0.4.1",
-    "mithril-tsx-component": "^3.0.0",
     "moment": "^2.22.2",
-    "node-normalize-scss": "^8.0.0"
+    "node-normalize-scss": "^8.0.0",
+    "webpack-bundle-analyzer": "^2.13.1"
   }
 }
