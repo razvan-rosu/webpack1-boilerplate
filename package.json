@@ -6,6 +6,7 @@
     "start": "npm run clean && NODE_ENV=production webpack-dev-server",
     "build:dev": "npm run clean && NODE_ENV=development webpack-dev-server --watch",
     "build:prod": "npm run clean && NODE_ENV=production webpack",
+    "build:debugprod": "npm run clean && NODE_ENV=debugproduction webpack-dev-server --watch",
     "clean": "rm -rf build"
   },
   "repository": {
