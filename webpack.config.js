@@ -13,6 +13,9 @@ const UglifyJsPlugin = require('./node_modules/webpack/lib/optimize/UglifyJsPlug
 // dynamicly insert hashed bundles into page template
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// resources gzip compression
+const CompressionPlugin = require("compression-webpack-plugin");
+
 // bundle performance debugger
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -109,7 +112,7 @@ module.exports = {
 
 
 /**
- * for development ENV
+ * diverse ENV usecases
  */
 
 // bundle performance visualizer
@@ -126,3 +129,16 @@ if (isDev || debugProd) {
 
   module.exports.devServer.proxy = proxy;
 }
+
+// resources gzip compression
+if (isProd || debugProd) {
+  module.exports.plugins.push(
+    new CompressionPlugin({
+      asset : "[path].gz[query]",
+      algorithm : "gzip",
+      test : /\.js$|\.css$|\.html$/,
+      threshold : 10240,
+      minRatio : 0.8
+    })
+  )
+};
