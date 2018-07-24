@@ -1,27 +1,30 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 // extract inline css
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // vendor bundle and code splitting
-var CommonsChunkPlugin = require('./node_modules/webpack/lib/optimize/CommonsChunkPlugin');
+const CommonsChunkPlugin = require('./node_modules/webpack/lib/optimize/CommonsChunkPlugin');
 
 // minify bundles
-var UglifyJsPlugin = require('./node_modules/webpack/lib/optimize/UglifyJsPlugin');
+const UglifyJsPlugin = require('./node_modules/webpack/lib/optimize/UglifyJsPlugin');
 
 // dynamicly insert hashed bundles into page template
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // bundle performance debugger
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 /**
  * ENV variables
-*/
-var env = process.env.NODE_ENV;
-var isProd = env === 'production';
+ */
+const env = process.env.NODE_ENV;
+const isDev = env === 'development';
+const isProd = env === 'production';
+const debugProd = env === 'debugproduction';
+
 
 module.exports = {
 	entry: {
@@ -39,14 +42,15 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    port: 3000
+    port: 3000,
+    proxy: {},
   },
   devtool: isProd ? false : 'source-map',
   module: {
     loaders: [
       {
         test: /\.s[ac]ss$/,
-        loader: isProd ? ExtractTextPlugin.extract('style', 'css-loader!autoprefixer?browsers=last 2 versions!sass') : ExtractTextPlugin.extract('style', 'css-loader?sourceMap!autoprefixer?browsers=last 2 versions!sass?sourceMap')
+        loader: (isProd || debugProd) ? ExtractTextPlugin.extract('style', 'css-loader!autoprefixer?browsers=last 2 versions!sass') : ExtractTextPlugin.extract('style', 'css-loader?sourceMap!autoprefixer?browsers=last 2 versions!sass?sourceMap')
       },
       {
         test: /\.js$/,
@@ -103,5 +107,22 @@ module.exports = {
   ]
 };
 
+
+/**
+ * for development ENV
+ */
+
 // bundle performance visualizer
-!(isProd) ? module.exports.plugins.push(new BundleAnalyzerPlugin()) : ''
+(isDev || debugProd) ? module.exports.plugins.push(new BundleAnalyzerPlugin()) : '';
+
+// proxy http requests
+if (isDev || debugProd) {
+  const proxy = {
+    '/users': {
+      target: 'http://localhost:3000',
+      pathRewrite: { '^/users': '/mockdata/users.json' },
+    }
+  }
+
+  module.exports.devServer.proxy = proxy;
+}
